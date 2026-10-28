@@ -36,48 +36,48 @@ ViettinCare/
 │           └── SKILL.md
 │
 ├── docs/                    # Tài liệu dự án (Đề tài 10)
-│   ├── customer-requirement.md      # Yêu cầu của khách hàng
-│   ├── requirements.md              # Yêu cầu chức năng & phi chức năng
-│   ├── user-stories.md              # Câu chuyện người dùng
 │   ├── acceptance-criteria.md       # Tiêu chí chấp nhận
-│   ├── requirements-issues.md       # Danh sách issues yêu cầu
-│   ├── architecture.md              # Kiến trúc hệ thống
+│   ├── ai-support-requirements.md   # Yêu cầu hỗ trợ AI
 │   ├── architecture-decisions.md    # Quyết định kiến trúc
+│   ├── architecture.md              # Kiến trúc hệ thống
+│   ├── code-review.md               # Kiểm tra mã nguồn
+│   ├── customer-requirement.md      # Yêu cầu của khách hàng
 │   ├── database-design.md           # Thiết kế cơ sở dữ liệu
+│   ├── deployment.md                # Hướng dẫn triển khai
+│   ├── product-retrieval.md         # Truy xuất sản phẩm
+│   ├── question-analysis.md         # Phân tích câu hỏi
+│   ├── requirements-issues.md       # Danh sách issues yêu cầu
+│   ├── requirements.md              # Yêu cầu chức năng & phi chức năng
+│   ├── security-review.md           # Kiểm tra bảo mật
 │   ├── test-plan.md                 # Kế hoạch kiểm thử
 │   ├── test-report.md               # Báo cáo kiểm thử
-│   ├── code-review.md               # Kiểm tra mã nguồn
-│   ├── security-review.md           # Kiểm tra bảo mật
-│   ├── api.md                       # Tài liệu API
-│   ├── deployment.md                # Hướng dẫn triển khai
+│   ├── ticket-analysis.md           # Phân tích ticket hỗ trợ
+│   ├── uml-design.md                # Thiết kế UML
 │   ├── user-guide.md                # Hướng dẫn sử dụng
-│   ├── ai-support-requirements.md   # Yêu cầu hỗ trợ AI
-│   └── ticket-analysis.md           # Phân tích ticket hỗ trợ
+│   └── user-stories.md              # Câu chuyện người dùng
 │
 ├── database/                # Cơ sở dữ liệu
+│   ├── db.py                  # Kết nối và khởi tạo CSDL
 │   ├── schema.sql             # Định nghĩa cấu trúc bảng
-│   └── db.py                  # Kết nối và khởi tạo CSDL
+│   └── viettincare.db         # CSDL SQLite mẫu (bỏ qua khi ném lên Git)
 │
-├── models/                  # Mô hình dữ liệu (data models)
-├── routes/                  # Định tuyến (route) của ứng dụng Flask
+├── models/                  # Mô hình dữ liệu (data models) — (hiện trống)
+├── routes/                  # Định tuyến Flask
+│   ├── ai_routes.py           # Đường dẫn tính năng AI
 │   ├── auth_routes.py         # Đường dẫn xác thực (đăng nhập/đăng xuất)
-│   ├── ticket_routes.py       # Đường dẫn quản lý ticket hỗ trợ
-│   ├── customer_routes.py     # Đường dẫn quản lý hồ sơ khách hàng
-│   └── ai_routes.py           # Đường dẫn tính năng hỗ trợ AI
+│   ├── customer_routes.py     # Đường dẫn quản lý khách hàng
+│   └── ticket_routes.py       # Đường dẫn quản lý ticket hỗ trợ
+│
+├── scripts/                 # Tiện ích vận hành dự án
+│   ├── init_db.py             # Khởi tạo CSDL mẫu
+│   ├── run_tests.py           # Chạy kiểm thử tự động
+│   └── seed_data.py           # Seed dữ liệu mẫu vào CSDL
 │
 ├── services/                # Lớp nghiệp vụ (business logic)
+│   ├── ai_support_service.py  # Hỗ trợ AI (phân loại, gợi ý trả lời, tóm tắt...)
 │   ├── auth_service.py        # Xác thực & phân quyền RBAC
 │   ├── customer_service.py    # Quản lý hồ sơ khách hàng
-│   ├── ticket_service.py      # Quản lý vòng đời ticket
-│   └── ai_support_service.py  # Tính năng hỗ trợ AI
-│
-├── templates/               # Mẫu giao diện HTML (Jinja2)
-│   ├── base.html              # Mẫu cơ sở
-│   ├── login.html             # Trang đăng nhập
-│   ├── dashboard.html         # Trang điều khiển
-│   ├── tickets.html           # Quản lý ticket
-│   ├── ticket_detail.html     # Chi tiết ticket
-│   └── customers.html         # Quản lý khách hàng
+│   └── ticket_service.py      # Quản lý vòng đời ticket
 │
 ├── static/                  # Tài nguyên tĩnh (CSS, JS)
 │   ├── css/
@@ -85,13 +85,24 @@ ViettinCare/
 │   └── js/
 │       └── ticket.js          # JavaScript xử lý ticket
 │
+├── templates/               # Mẫu giao diện HTML (Jinja2)
+│   ├── base.html              # Mẫu cơ sở
+│   ├── customers.html         # Quản lý khách hàng
+│   ├── dashboard.html         # Trang điều khiển
+│   ├── login.html             # Trang đăng nhập
+│   ├── ticket_detail.html     # Chi tiết ticket
+│   └── tickets.html           # Quản lý ticket
+│
 ├── tests/                   # Kiểm thử tự động
+│   ├── test_ai_support.py     # Kiểm thử tính năng hỗ trợ AI
 │   ├── test_auth.py           # Kiểm thử chức năng xác thực
-│   ├── test_tickets.py        # Kiểm thử quản lý ticket
-│   └── test_ai_support.py     # Kiểm thử tính năng hỗ trợ AI
+│   └── test_tickets.py        # Kiểm thử quản lý ticket
 │
 ├── app.py                     # Điểm vào chính của ứng dụng Flask
+├── generate_report.py         # Tạo báo cáo DOCX cho đề tài 10
 ├── requirements.txt           # Danh sách thư viện phụ thuộc
+├── .env.example               # Mẫu biến môi trường
+├── .gitignore                 # Quy tắc bỏ qua Git
 └── README.md                  # Tài liệu chính của dự án
 ```
 
