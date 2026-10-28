@@ -10,29 +10,39 @@ Hệ thống quản lý ticket hỗ trợ khách hàng được xây dựng theo
 ViettinCare/
 ├── .agents/                  # Chứa các Skill của AI-Agent (AI-Augmented SDLC)
 │   └── skills/               # Thư mục gốc của tất cả các skill
-│       ├── requirements-analysis/   # Phân tích yêu cầu
+│       ├── ai-prompt/               # Quản lý prompt AI
 │       │   └── SKILL.md
 │       ├── architecture-design/     # Thiết kế kiến trúc
 │       │   └── SKILL.md
-│       ├── database-design/         # Thiết kế cơ sở dữ liệu
-│       │   └── SKILL.md
-│       ├── implementation/          # Triển khai mã nguồn
-│       │   └── SKILL.md
-│       ├── testing/                 # Kiểm thử phần mềm
-│       │   └── SKILL.md
 │       ├── code-review/             # Kiểm tra mã nguồn
-│       │   └── SKILL.md
-│       ├── security-review/         # Kiểm tra bảo mật
-│       │   └── SKILL.md
-│       ├── ticket-analysis/         # Phân tích ticket hỗ trợ
-│       │   └── SKILL.md
-│       ├── faq-retrieval/           # Truy xuất câu hỏi thường gặp
 │       │   └── SKILL.md
 │       ├── context-builder/         # Xây dựng ngữ cảnh cho AI
 │       │   └── SKILL.md
-│       ├── ai-prompt/               # Quản lý prompt AI
+│       ├── database-design/         # Thiết kế cơ sở dữ liệu
 │       │   └── SKILL.md
-│       └── documentation/           # Tài liệu hóa
+│       ├── documentation/           # Tài liệu hóa
+│       │   └── SKILL.md
+│       ├── faq-retrieval/           # Truy xuất câu hỏi thường gặp
+│       │   └── SKILL.md
+│       ├── implementation/          # Triển khai mã nguồn
+│       │   └── SKILL.md
+│       ├── product-retrieval/       # Truy xuất sản phẩm
+│       │   └── SKILL.md
+│       ├── question-analysis/       # Phân tích câu hỏi
+│       │   └── SKILL.md
+│       ├── rag-prompt/              # Quản lý prompt RAG
+│       │   └── SKILL.md
+│       ├── requirements-analysis/   # Phân tích yêu cầu
+│       │   └── SKILL.md
+│       ├── security-review/         # Kiểm tra bảo mật
+│       │   └── SKILL.md
+│       ├── testing/                 # Kiểm thử phần mềm
+│       │   └── SKILL.md
+│       ├── ticket-analysis/         # Phân tích ticket hỗ trợ
+│       │   └── SKILL.md
+│       ├── ticket-retrieval/        # Truy xuất ticket hỗ trợ
+│       │   └── SKILL.md
+│       └── uml-design/              # Thiết kế UML
 │           └── SKILL.md
 │
 ├── docs/                    # Tài liệu dự án (Đề tài 10)
