@@ -1,38 +1,41 @@
 ---
 name: question-analysis
-description: Analyze natural language user queries to extract structured intent, entities, keywords, and constraints.
+description: Phân tích câu hỏi ngôn ngữ tự nhiên của người dùng để trích xuất ý định (intent), thực thể (entities), từ khóa (keywords) và các ràng buộc có cấu trúc.
 ---
-# Question Analysis Skill
+# Kỹ năng Phân tích Câu hỏi (Question Analysis Skill)
 
-## Objective
-Analyze customer inquiries or support requests expressed in natural language and transform them into a structured intermediate representation (JSON).
+## 1. Mục tiêu (Objective)
+Tiếp nhận và bóc tách câu hỏi hoặc yêu cầu khiếu nại bằng ngôn ngữ tự nhiên từ người dùng, chuyển đổi thành biểu diễn trung gian có cấu trúc dạng JSON (Structured Intent), đóng vai trò đầu vào trực tiếp cho module truy xuất dữ liệu (Retrieval Engine).
 
-## Inputs
-- Natural language query from customer or user
-- Conversation context (optional)
+## 2. Đầu vào (Inputs)
+- Một câu hỏi hoặc đoạn văn bản tiếng Việt do khách hàng/người dùng gửi đến
+- Lịch sử hội thoại ngữ cảnh (nếu có)
 
-## Process
-1. Sanitize text: strip PII and sensitive tokens.
-2. Identify user intent:
-   - Search/inquiry
-   - Issue report / bug
-   - Billing / payment question
-   - Account / login support
-3. Extract entities and constraints:
-   - Category
-   - Priority / urgency
-   - Keywords
-4. Output structured JSON.
+## 3. Quy trình thực hiện (Process)
+1. **Lọc sạch dữ liệu đầu vào (Text Sanitization)**: Khử bỏ các chuỗi nhạy cảm (mật khẩu, số thẻ ngân hàng, số điện thoại).
+2. **Nhận diện ý định cốt lõi (Core Intent)**:
+   - Tra cứu giải pháp tài khoản / quên mật khẩu
+   - Sự cố thanh toán / hóa đơn bị trừ tiền sai
+   - Báo cáo lỗi kỹ thuật / màn hình trắng / lỗi 500
+   - Tư vấn gói cước, nâng cấp dịch vụ
+3. **Trích xuất thực thể và từ khóa (Entity & Keyword Extraction)**:
+   - Trích xuất danh mục nghiệp vụ (`category`)
+   - Trích xuất từ khóa tìm kiếm (`keywords`)
+   - Đánh giá mức độ khẩn cấp (`priority`: Low, Medium, High, Urgent)
+4. **Chuẩn hóa dữ liệu đầu ra**: Đóng gói thành đối tượng JSON chuẩn:
+   ```json
+   {
+     "category": "Tài khoản & Đăng nhập",
+     "keywords": ["đổi mật khẩu", "reset", "email"],
+     "suggested_priority": "High",
+     "sanitized_summary": "Khách hàng không nhận được email đổi mật khẩu..."
+   }
+   ```
 
-## Output Format
-```json
-{
-  "category": "Tài khoản & Đăng nhập",
-  "keywords": ["đổi mật khẩu", "reset", "email"],
-  "priority": "High"
-}
-```
+## 4. Quy tắc bắt buộc (Rules)
+- Không tự ý bịa đặt từ khóa hoặc thông tin không xuất hiện trong câu hỏi gốc.
+- Không gửi trực tiếp câu hỏi người dùng chưa qua phân tích sang LLM mà bắt buộc phải qua bước trích xuất có cấu trúc này.
 
-## Rules
-- Do not invent entities or constraints not mentioned in the query.
-- Never pass unmasked credentials into downstream AI contexts.
+## 5. Đầu ra cần tạo (Outputs)
+- Đối tượng JSON đại diện cho ý định người dùng (Intermediate Representation).
+- Tài liệu mô tả module phân tích: `docs/question-analysis.md` (hoặc `docs/ticket-analysis.md`).

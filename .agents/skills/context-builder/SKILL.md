@@ -1,27 +1,39 @@
 ---
 name: context-builder
-description: Construct compact, sanitized context combining ticket details, filtered conversation history, and official FAQ guidelines for the LLM.
+description: Xây dựng khối ngữ cảnh ngắn gọn, bảo mật, kết hợp thông tin ticket, lịch sử trao đổi đã khử định danh PII và bài viết hướng dẫn FAQ chính thức cho LLM.
 ---
-# Context Builder Skill
-## Objective
-Build a concise, well-structured context block containing sanitized ticket details, filtered past message exchanges, and verified FAQ references, while removing noise and ensuring token efficiency.
+# Kỹ năng Xây dựng Ngữ cảnh AI (Context Builder Skill)
 
-## Inputs
-- Ticket data (ID, Title, Category, Priority, Status)
-- Filtered ticket conversation history (Customer & Agent comments)
-- Retrieved FAQ/KB solutions
+## 1. Mục tiêu (Objective)
+Đóng gói một khối ngữ cảnh (Context Block) chuẩn xác, cô đọng và an toàn, kết hợp giữa thông tin chi tiết của ticket, lịch sử các lượt trao đổi gần nhất (đã được khử định danh thông tin cá nhân) và giải pháp tra cứu được từ cơ sở tri thức FAQ để làm đầu vào cho LLM.
 
-## Process
-1. Sanitize customer inputs (mask email, phone, personal identity info).
-2. Filter out conversational fluff (e.g., redundant greeting duplicates).
-3. Assemble formatted context sections:
-   - `[TICKET_INFO]`
-   - `[RECENT_EXCHANGES]`
-   - `[OFFICIAL_FAQ_GUIDELINES]`
-4. Enforce strict character/token budget (max 2000 characters).
+## 2. Đầu vào (Inputs)
+- Dữ liệu chi tiết của Ticket (Mã ticket, Tiêu đề, Mô tả ban đầu, Danh mục, Mức ưu tiên)
+- Danh sách các bình luận trao đổi gần nhất giữa khách hàng và nhân viên
+- Danh sách các bài viết FAQ tra cứu được từ tầng `FAQ Retriever`
 
-## Rules
-- Do not introduce facts or customer claims not in the original ticket.
-- Do not modify customer's original complaint intent.
-- Ensure all retrieved FAQ content is cleanly attributed.
+## 3. Quy trình thực hiện (Process)
+1. **Khử định danh dữ liệu cá nhân (PII Sanitization)**: Loại bỏ hoặc thay thế mật khẩu, số thẻ ngân hàng, số điện thoại thành các nhãn mask an toàn (`[MASKED_INFO]`).
+2. **Lọc nhiễu hội thoại**: Lọc bỏ các câu chào hỏi lặp lại không mang giá trị ngữ nghĩa kỹ thuật; chỉ giữ lại tối đa 4 lượt trao đổi gần nhất để tối ưu dung lượng token.
+3. **Định dạng cấu trúc ngữ cảnh chuẩn**:
+   ```text
+   [THÔNG TIN TICKET]
+   Mã: ... | Tiêu đề: ... | Mô tả: ...
 
+   [LỊCH SỬ TRAO ĐỔI GẦN ĐÂY]
+   - customer: ...
+   - agent: ...
+
+   [CƠ SỞ TRI THỨC VÀ CHÍNH SÁCH DOANH NGHIỆP]
+   Vấn đề: ...
+   Giải pháp chuẩn: ...
+   ```
+4. **Kiểm soát dung lượng Token**: Giới hạn toàn bộ khối ngữ cảnh dưới 2000 ký tự (khoảng 500 tokens) để vừa tiết kiệm chi phí, vừa giảm độ trễ phản hồi của AI.
+
+## 4. Quy tắc bắt buộc (Rules)
+- Không thêm thắt bất kỳ dữ liệu nào không có trong cơ sở dữ liệu.
+- Không làm thay đổi nội dung khiếu nại gốc của khách hàng.
+- Nguồn trích xuất từ FAQ phải được phân tách rõ ràng với nội dung trao đổi của khách.
+
+## 5. Đầu ra cần tạo (Outputs)
+- Chuỗi văn bản ngữ cảnh sạch được truyền vào hàm tạo prompt của mô hình ngôn ngữ lớn.

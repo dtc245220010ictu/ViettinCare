@@ -10,3 +10,4 @@ if __name__ == '__main__':
     seed_initial_data(conn)
     conn.close()
     print("Seed data successfully populated.")
+

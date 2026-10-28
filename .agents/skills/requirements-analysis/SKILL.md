@@ -1,86 +1,84 @@
 ---
 name: requirements-analysis
-description: Analyze software requirements and transform natural-language requirements into structured functional requirements, non-functional requirements, user stories, acceptance criteria, and traceability information for customer support systems.
+description: Phân tích yêu cầu phần mềm và chuyển đổi yêu cầu ngôn ngữ tự nhiên thành tài liệu đặc tả chức năng, phi chức năng, user stories, tiêu chí chấp nhận và ma trận truy vết cho hệ thống hỗ trợ khách hàng.
 ---
-# Requirements Analysis Skill
-## Objective
-Analyze customer support management requirements systematically and produce a structured specification suitable for subsequent architecture, database, implementation, and testing activities.
+# Kỹ năng Phân tích Yêu cầu (Requirements Analysis Skill)
 
-## Inputs
-Read the following project artifacts when available:
-- customer requirements (docs/customer-requirement.md)
-- business requirements & support SLAs
-- existing requirements documentation
-- project constraints (human-in-the-loop review, PII sanitization)
+## 1. Mục tiêu (Objective)
+Phân tích có hệ thống các yêu cầu nghiệp vụ quản lý hỗ trợ khách hàng, chuyển đổi yêu cầu ngôn ngữ tự nhiên thành bộ đặc tả kỹ thuật có cấu trúc, đóng vai trò đầu vào chuẩn xác cho các công đoạn thiết kế kiến trúc, thiết kế cơ sở dữ liệu, lập trình và kiểm thử.
 
-## Process
-### 1. Identify stakeholders
-Identify all stakeholders relevant to the customer support system (Customers, Support Agents, Team Leaders, System Administrators).
-### 2. Identify actors
-Identify actors interacting with the system.
-### 3. Identify functional requirements
-Convert explicit business needs into functional requirements.
-Use IDs:
-- FR-001: Authentication & RBAC (Admin, Team Lead, Agent)
-- FR-002: Customer profile management
-- FR-003: Ticket creation and lifecycle management (Status: New, In Progress, Waiting Customer, Closed)
-- FR-004: Ticket assignment to support agents
-- FR-005: Ticket conversation history and attachment tracking
-- FR-006: Ticket search, filter & categorization
-- FR-007: Basic SLA and resolution statistics dashboard
-- FR-008: AI ticket classification & priority recommendation
-- FR-009: AI draft response suggestion based on FAQ/KB
-- FR-010: AI ticket conversation history summarization
-- FR-011: Human-in-the-loop approval mechanism for AI draft responses
-### 4. Identify non-functional requirements
-Identify requirements related to:
-- performance (response time < 2s for CRUD, < 4s for AI generation)
-- security (RBAC, PII data masking before sending to external LLM, SQL injection prevention)
-- reliability (Graceful fallback when AI provider is unavailable)
-- usability (Intuitive split-view UI for ticket and AI assistant)
-- maintainability (Modular services architecture)
-- scalability
-Use IDs: NFR-001, NFR-002, etc.
-### 5. Identify business rules
-List business rules explicitly stated:
-- Support agent MUST approve/edit AI draft responses before sending to customer.
-- PII (passwords, payment data, personal secrets) must be masked before sending to external LLM.
-- AI must NOT make unauthorized promises (no unauthorized refund commitment without human approval).
-Do not invent business rules.
-### 6. Identify assumptions
-Separate assumptions from actual requirements.
-### 7. Identify ambiguities
-Identify requirements that are ambiguous, incomplete, contradictory, or not testable.
-### 8. Create user stories
-Use:
-As a <role>,
-I want <capability>,
-so that <benefit>.
-### 9. Create acceptance criteria
-Each important user story must have testable acceptance criteria (Given - When - Then).
-### 10. Traceability
-Every user story must be traceable to one or more requirements.
+## 2. Đầu vào (Inputs)
+Đọc và đối chiếu các tài liệu dự án sau khi sẵn sàng:
+- Yêu cầu của khách hàng (`docs/customer-requirement.md`)
+- Quy định nghiệp vụ và tiêu chuẩn dịch vụ (SLA)
+- Các tài liệu đặc tả hiện có
+- Ràng buộc dự án (Bảo mật dữ liệu cá nhân PII, cơ chế con người kiểm duyệt Human-in-the-Loop)
 
-## Rules
-- Do not write source code.
-- Do not design the database.
-- Do not design the architecture.
-- Do not invent undocumented business rules.
-- Clearly distinguish requirements from assumptions.
-- Clearly identify missing information.
+## 3. Quy trình thực hiện (Process)
+### Bước 1: Xác định các bên liên quan (Stakeholders)
+Nhận diện tất cả các bên liên quan: Khách hàng sử dụng dịch vụ, Nhân viên hỗ trợ (Support Agent), Quản lý nhóm (Team Lead), Quản trị viên hệ thống (Admin).
 
-## Outputs
-Create or update:
-- docs/requirements.md
-- docs/user-stories.md
-- docs/acceptance-criteria.md
-- docs/requirements-issues.md
+### Bước 2: Xác định các tác nhân (Actors)
+Xác định tác nhân tương tác trực tiếp với phần mềm.
 
-## Verification
-Before completing the task verify:
-- all functional requirements have IDs;
-- all non-functional requirements have IDs;
-- user stories trace to requirements;
-- acceptance criteria are testable;
-- ambiguities are explicitly documented.
+### Bước 3: Xác định yêu cầu chức năng (Functional Requirements)
+Chuyển đổi nhu cầu kinh doanh thành danh sách yêu cầu chức năng với mã định danh chuẩn:
+- `FR-001`: Đăng nhập và phân quyền RBAC
+- `FR-002`: Quản lý hồ sơ và thông tin khách hàng
+- `FR-003`: Tạo và quản lý vòng đời Ticket (Mới, Đang xử lý, Chờ khách, Đã đóng)
+- `FR-004`: Phân công ticket cho nhân viên xử lý
+- `FR-005`: Lịch sử trao đổi và quản lý phản hồi
+- `FR-006`: Tìm kiếm, lọc nâng cao theo trạng thái, mức ưu tiên, khách hàng
+- `FR-007`: Báo cáo thống kê hiệu suất hỗ trợ và vi phạm SLA
+- `FR-008`: AI tự động phân loại sự cố và gợi ý mức ưu tiên
+- `FR-009`: AI gợi ý câu trả lời nháp đối chiếu cơ sở tri thức FAQ (RAG)
+- `FR-010`: Cơ chế con người phê duyệt (Human Gate) trước khi gửi phản hồi AI
+- `FR-011`: AI tóm tắt chuỗi trao đổi dài khi bàn giao ca trực
 
+### Bước 4: Xác định yêu cầu phi chức năng (Non-Functional Requirements)
+Định nghĩa tiêu chí kỹ thuật với mã định danh:
+- `NFR-001` (Hiệu năng): CRUD < 1s, AI generation < 4s
+- `NFR-002` (Bảo mật): Băm mật khẩu bcrypt/SHA-256, kiểm tra quyền truy cập route
+- `NFR-003` (Quyền riêng tư): Tự động che dữ liệu nhạy cảm (PII Masking) trước khi gọi LLM
+- `NFR-004` (Độ tin cậy): Cơ chế dự phòng ngoại tuyến (Fallback Engine) khi AI mất mạng
+- `NFR-005` (Khả năng bảo trì): Kiến trúc phân tầng tách bạch rõ ràng
+
+### Bước 5: Liệt kê quy tắc nghiệp vụ (Business Rules)
+- Phản hồi do AI sinh ra bắt buộc phải có sự kiểm duyệt của nhân viên trước khi gửi khách.
+- AI tuyệt đối không cam kết bồi hoàn tài chính sai thẩm quyền.
+
+### Bước 6: Tách bạch các giả định (Assumptions)
+Tách riêng những điểm suy đoán ra khỏi yêu cầu cốt lõi.
+
+### Bước 7: Nhận diện điểm mơ hồ và lỗi AI Hallucination (Ambiguities)
+Chỉ ra các điểm chưa rõ, mâu thuẫn hoặc không thể kiểm thử. Loại bỏ các yêu cầu bịa đặt do AI tự thêm vào.
+
+### Bước 8: Xây dựng User Stories
+Định dạng chuẩn:
+*Là một `<vai trò>`, Tôi muốn `<chức năng>`, Để `<lợi ích>`.*
+
+### Bước 9: Xây dựng Tiêu chí chấp nhận (Acceptance Criteria)
+Mỗi User Story quan trọng phải có tiêu chí kiểm thử rõ ràng theo chuẩn:
+*Given (Bối cảnh ban đầu) - When (Hành động) - Then (Kết quả kỳ vọng).*
+
+### Bước 10: Ma trận truy vết (Traceability)
+Đảm bảo mọi User Story và Acceptance Criteria đều truy vết trực tiếp về mã yêu cầu FR/NFR.
+
+## 4. Quy tắc bắt buộc (Rules)
+- Không viết mã nguồn (source code) trong bước này.
+- Không thiết kế cơ sở dữ liệu hoặc kiến trúc phần mềm.
+- Không tự ý bịa đặt quy tắc kinh doanh chưa được ghi nhận trong tài liệu.
+- Phân biệt rành mạch giữa yêu cầu đã duyệt và giả định.
+
+## 5. Đầu ra cần tạo (Outputs)
+- `docs/requirements.md`
+- `docs/user-stories.md`
+- `docs/acceptance-criteria.md`
+- `docs/requirements-issues.md`
+
+## 6. Tiêu chuẩn kiểm chứng (Verification)
+Trước khi bàn giao kết quả, xác minh:
+- 100% yêu cầu chức năng và phi chức năng có mã định danh.
+- Tất cả User Stories có liên kết truy vết.
+- Toàn bộ tiêu chí chấp nhận đều kiểm thử được (testable).
+- Các điểm mơ hồ và lỗi bịa đặt được ghi chú rõ ràng.
