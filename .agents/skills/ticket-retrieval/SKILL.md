@@ -29,3 +29,4 @@ Thực thi truy vấn cơ sở dữ liệu quan hệ một cách bảo mật, ch
 
 ## 5. Đầu ra cần tạo (Outputs)
 - Mảng dữ liệu các bản ghi ticket ngân hàng sạch, có cấu trúc.
+
