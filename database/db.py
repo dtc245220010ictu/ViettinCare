@@ -46,31 +46,31 @@ def seed_initial_data(conn):
             customers
         )
 
-        # Seed FAQs (Cơ sở tri thức cho RAG)
+        # Seed FAQs (Cơ sở tri thức CSKH Ngân hàng số cho RAG)
         faqs = [
             (
                 'Tài khoản & Đăng nhập',
-                'Khách hàng không nhận được email kích hoạt hoặc email reset mật khẩu thì xử lý thế nào?',
-                'Hướng dẫn khách kiểm tra hòm thư Rác (Spam/Junk). Nếu sau 5 phút vẫn chưa nhận được, nhân viên hỗ trợ xác minh thông tin chính chủ qua số điện thoại đăng ký và gửi mã OTP kích hoạt thủ công qua SMS.',
-                'đổi mật khẩu reset pass quên mật khẩu không nhận email kích hoạt otp'
+                'Khách hàng không nhận được email/SMS mã xác nhận kích hoạt ứng dụng Ngân hàng số hoặc reset mật khẩu?',
+                'Hướng dẫn khách kiểm tra hòm thư Rác (Spam/Junk) và kiểm tra tín hiệu mạng điện thoại. Nếu sau 3 phút vẫn chưa nhận được, nhân viên CSKH hướng dẫn xác thực khuôn mặt (eKYC) trên ứng dụng hoặc cấp mã kích hoạt lại qua kênh xác thực tổng đài bảo mật.',
+                'đổi mật khẩu reset pass quên mật khẩu không nhận email kích hoạt otp ngân hàng số'
             ),
             (
                 'Thanh toán & Hóa đơn',
-                'Khách hàng bị trừ tiền hai lần khi gia hạn dịch vụ hoặc giao dịch thất bại nhưng bị trừ tiền?',
-                'Hệ thống tự động đối soát ngân hàng trong vòng 24h. Nhân viên hỗ trợ cần xin mã giao dịch (Transaction ID) và ảnh sao kê. Nếu đối soát lỗi từ cổng thanh toán, tiền sẽ được hoàn tự động về tài khoản khách sau 3-5 ngày làm việc. Nhân viên không được cam kết hoàn tiền mặt ngay lập tức.',
-                'thanh toán trừ tiền hai lần giao dịch hoàn tiền banking lỗi ngân hàng'
+                'Khách hàng chuyển khoản nhanh 24/7 hoặc thanh toán QR bị trừ tiền tài khoản nhưng bên nhận chưa nhận được?',
+                'Đây là tình trạng trễ lệnh đối soát liên ngân hàng (Napas). Hệ thống ngân hàng tự động tra soát và hoàn tiền hoặc ghi có cho người thụ hưởng trong vòng 24h làm việc. Nhân viên CSKH cần xin Mã tham chiếu giao dịch (Transaction ID) và gửi yêu cầu tra soát liên ngân hàng. Tuyệt đối không tự ý cam kết hoàn tiền mặt ngay lập tức.',
+                'chuyển tiền napas trừ tiền hai lần giao dịch hoàn tiền tra soát lỗi ngân hàng qr pay'
             ),
             (
                 'Lỗi kỹ thuật & Phần mềm',
-                'Hệ thống báo lỗi 500 hoặc màn hình trắng khi tải danh sách báo cáo?',
-                'Yêu cầu khách hàng xóa cache trình duyệt (Ctrl+F5) hoặc thử trình duyệt ẩn danh. Nếu vẫn gặp lỗi, thu thập URL cụ thể, thời điểm xảy ra lỗi và chuyển tiếp cho đội ngũ Kỹ thuật hạ tầng (DevOps).',
-                'lỗi 500 màn hình trắng tải báo cáo crash lag hệ thống sập'
+                'Ứng dụng Ngân hàng số báo lỗi không kết nối máy chủ hoặc lỗi xác thực sinh trắc học FaceID/Vân tay?',
+                'Yêu cầu khách hàng kiểm tra kết nối mạng 4G/Wifi, cập nhật phiên bản mới nhất của ứng dụng trên App Store/Google Play hoặc khởi động lại thiết bị. Nếu lỗi liên quan đến sinh trắc học theo Quyết định 2345/QĐ-NHNN, hướng dẫn khách mang Căn cước công dân gắn chip tới quầy giao dịch gần nhất để cập nhật dữ liệu NFC.',
+                'lỗi ứng dụng crash sinh trắc học faceid căn cước cccd nfc sập hệ thống'
             ),
             (
                 'Tư vấn & Hướng dẫn sử dụng',
-                'Quy trình nâng cấp gói tài khoản từ Standard lên VIP được thực hiện ra sao?',
-                'Khách hàng có thể vào Cài đặt -> Gói dịch vụ -> Chọn Nâng cấp VIP. Quyền lợi VIP bao gồm SLA phản hồi ưu tiên dưới 15 phút, có nhân viên kỹ thuật hỗ trợ 24/7 và hạn mức lưu trữ gấp 5 lần.',
-                'nâng cấp vip bảng giá ưu đãi sla quyền lợi gói dịch vụ'
+                'Điều kiện nâng cấp tài khoản thanh toán lên phân hạng Khách hàng Ưu tiên (Priority/VIP) và hạn mức giao dịch?',
+                'Khách hàng duy trì số dư bình quân từ 200 triệu VNĐ trong 3 tháng gần nhất hoặc có gói tiền gửi tiết kiệm từ 1 tỷ VNĐ. Quyền lợi bao gồm: Miễn phí toàn bộ phí chuyển tiền và phí quản lý tài khoản, nâng hạn mức chuyển tiền trực tuyến lên tới 5 tỷ VNĐ/ngày, và có chuyên viên tư vấn tài chính riêng 24/7.',
+                'nâng cấp vip priority hạn mức chuyển tiền biểu phí lãi suất tiết kiệm thẻ tín dụng'
             )
         ]
         cursor.executemany(

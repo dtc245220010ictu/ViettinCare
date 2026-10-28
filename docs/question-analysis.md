@@ -22,3 +22,4 @@
 1. **Lọc thông tin cá nhân (PII Sanitization)**: Khử định danh mật khẩu, số thẻ ngân hàng, số điện thoại.
 2. **Gán nhãn danh mục**: Dựa trên từ khóa cốt lõi (Tài khoản, Thanh toán, Lỗi kỹ thuật, Tư vấn).
 3. **Đánh giá mức ưu tiên**: Nếu có từ "gấp", "tiền", "lỗi 500", "sập" -> Tự động đề xuất mức `High` hoặc `Urgent`.
+
