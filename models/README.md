@@ -1,0 +1,3 @@
+# models/
+
+Thư mục chứa các **mô hình dữ liệu** (data models) của ứng dụng ViettinCare, đại diện cho các thực thể như khách hàng, nhân viên, ticket, danh mục, mức độ ưu tiên...
