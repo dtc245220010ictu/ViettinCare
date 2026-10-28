@@ -8,91 +8,91 @@ Hệ thống quản lý ticket hỗ trợ khách hàng được xây dựng theo
 
 ```
 ViettinCare/
-├── .agents/
-│   └── skills/
-│       ├── requirements-analysis/
+├── .agents/                  # Chứa các Skill của AI-Agent (AI-Augmented SDLC)
+│   └── skills/               # Thư mục gốc của tất cả các skill
+│       ├── requirements-analysis/   # Phân tích yêu cầu
 │       │   └── SKILL.md
-│       ├── architecture-design/
+│       ├── architecture-design/     # Thiết kế kiến trúc
 │       │   └── SKILL.md
-│       ├── database-design/
+│       ├── database-design/         # Thiết kế cơ sở dữ liệu
 │       │   └── SKILL.md
-│       ├── implementation/
+│       ├── implementation/          # Triển khai mã nguồn
 │       │   └── SKILL.md
-│       ├── testing/
+│       ├── testing/                 # Kiểm thử phần mềm
 │       │   └── SKILL.md
-│       ├── code-review/
+│       ├── code-review/             # Kiểm tra mã nguồn
 │       │   └── SKILL.md
-│       ├── security-review/
+│       ├── security-review/         # Kiểm tra bảo mật
 │       │   └── SKILL.md
-│       ├── ticket-analysis/
+│       ├── ticket-analysis/         # Phân tích ticket hỗ trợ
 │       │   └── SKILL.md
-│       ├── faq-retrieval/
+│       ├── faq-retrieval/           # Truy xuất câu hỏi thường gặp
 │       │   └── SKILL.md
-│       ├── context-builder/
+│       ├── context-builder/         # Xây dựng ngữ cảnh cho AI
 │       │   └── SKILL.md
-│       ├── ai-prompt/
+│       ├── ai-prompt/               # Quản lý prompt AI
 │       │   └── SKILL.md
-│       └── documentation/
+│       └── documentation/           # Tài liệu hóa
 │           └── SKILL.md
 │
-├── docs/
-│   ├── customer-requirement.md
-│   ├── requirements.md
-│   ├── user-stories.md
-│   ├── acceptance-criteria.md
-│   ├── requirements-issues.md
-│   ├── architecture.md
-│   ├── architecture-decisions.md
-│   ├── database-design.md
-│   ├── test-plan.md
-│   ├── test-report.md
-│   ├── code-review.md
-│   ├── security-review.md
-│   ├── api.md
-│   ├── deployment.md
-│   ├── user-guide.md
-│   ├── ai-support-requirements.md
-│   └── ticket-analysis.md
+├── docs/                    # Tài liệu dự án (Đề tài 10)
+│   ├── customer-requirement.md      # Yêu cầu của khách hàng
+│   ├── requirements.md              # Yêu cầu chức năng & phi chức năng
+│   ├── user-stories.md              # Câu chuyện người dùng
+│   ├── acceptance-criteria.md       # Tiêu chí chấp nhận
+│   ├── requirements-issues.md       # Danh sách issues yêu cầu
+│   ├── architecture.md              # Kiến trúc hệ thống
+│   ├── architecture-decisions.md    # Quyết định kiến trúc
+│   ├── database-design.md           # Thiết kế cơ sở dữ liệu
+│   ├── test-plan.md                 # Kế hoạch kiểm thử
+│   ├── test-report.md               # Báo cáo kiểm thử
+│   ├── code-review.md               # Kiểm tra mã nguồn
+│   ├── security-review.md           # Kiểm tra bảo mật
+│   ├── api.md                       # Tài liệu API
+│   ├── deployment.md                # Hướng dẫn triển khai
+│   ├── user-guide.md                # Hướng dẫn sử dụng
+│   ├── ai-support-requirements.md   # Yêu cầu hỗ trợ AI
+│   └── ticket-analysis.md           # Phân tích ticket hỗ trợ
 │
-├── database/
-│   ├── schema.sql
-│   └── db.py
+├── database/                # Cơ sở dữ liệu
+│   ├── schema.sql             # Định nghĩa cấu trúc bảng
+│   └── db.py                  # Kết nối và khởi tạo CSDL
 │
-├── models/
-├── routes/
-│   ├── auth_routes.py
-│   ├── ticket_routes.py
-│   ├── customer_routes.py
-│   └── ai_routes.py
+├── models/                  # Mô hình dữ liệu (data models)
+├── routes/                  # Định tuyến (route) của ứng dụng Flask
+│   ├── auth_routes.py         # Đường dẫn xác thực (đăng nhập/đăng xuất)
+│   ├── ticket_routes.py       # Đường dẫn quản lý ticket hỗ trợ
+│   ├── customer_routes.py     # Đường dẫn quản lý hồ sơ khách hàng
+│   └── ai_routes.py           # Đường dẫn tính năng hỗ trợ AI
 │
-├── services/
-│   ├── auth_service.py
-│   ├── customer_service.py
-│   ├── ticket_service.py
-│   └── ai_support_service.py
+├── services/                # Lớp nghiệp vụ (business logic)
+│   ├── auth_service.py        # Xác thực & phân quyền RBAC
+│   ├── customer_service.py    # Quản lý hồ sơ khách hàng
+│   ├── ticket_service.py      # Quản lý vòng đời ticket
+│   └── ai_support_service.py  # Tính năng hỗ trợ AI
 │
-├── templates/
-│   ├── base.html
-│   ├── login.html
-│   ├── dashboard.html
-│   ├── tickets.html
-│   ├── ticket_detail.html
-│   └── customers.html
+├── templates/               # Mẫu giao diện HTML (Jinja2)
+│   ├── base.html              # Mẫu cơ sở
+│   ├── login.html             # Trang đăng nhập
+│   ├── dashboard.html         # Trang điều khiển
+│   ├── tickets.html           # Quản lý ticket
+│   ├── ticket_detail.html     # Chi tiết ticket
+│   └── customers.html         # Quản lý khách hàng
 │
-├── static/
+├── static/                  # Tài nguyên tĩnh (CSS, JS)
 │   ├── css/
-│   │   └── style.css
+│   │   └── style.css          # Định dạng giao diện
 │   └── js/
-│       └── ticket.js
+│       └── ticket.js          # JavaScript xử lý ticket
 │
-├── tests/
-│   ├── test_auth.py
-│   ├── test_tickets.py
-│   └── test_ai_support.py
+├── tests/                   # Kiểm thử tự động
+│   ├── test_auth.py           # Kiểm thử chức năng xác thực
+│   ├── test_tickets.py        # Kiểm thử quản lý ticket
+│   └── test_ai_support.py     # Kiểm thử tính năng hỗ trợ AI
 │
-├── app.py
-├── requirements.txt
-└── README.md
+├── app.py                     # Điểm vào chính của ứng dụng Flask
+├── requirements.txt           # Danh sách thư viện phụ thuộc
+└── README.md                  # Tài liệu chính của dự án
 ```
 
 ---
