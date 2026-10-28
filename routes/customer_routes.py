@@ -33,3 +33,4 @@ def create_customer():
         flash(f"Lỗi khi thêm khách hàng: {str(e)}", "danger")
 
     return redirect(url_for('customers.list_customers'))
+

@@ -44,3 +44,4 @@ def test_ticket_crud_and_status():
     assert comment_id > 0
     comments = TicketService.get_comments(ticket_id)
     assert len(comments) >= 1
+

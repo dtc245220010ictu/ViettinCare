@@ -17,3 +17,4 @@
 Trong quá trình chạy Codex phân tích yêu cầu ban đầu:
 - **Nguy cơ Hallucination phát hiện được**: AI đề xuất thêm tính năng "Tự động gọi điện thoại cho khách hàng qua VoIP" và "Tự động hoàn tiền vào tài khoản ngân hàng của khách khi phát hiện lỗi thanh toán".
 - **Biện pháp xử lý của con người**: Loại bỏ ngay 2 tính năng tự ý bịa đặt này. Hệ thống hỗ trợ khách hàng không được tự động chuyển tiền hoặc can thiệp tổng đài viễn thông ngoài phạm vi quy định của đề tài. Mọi quyết định bồi hoàn tài chính phải do con người phê duyệt ngoại tuyến.
+

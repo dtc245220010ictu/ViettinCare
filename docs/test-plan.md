@@ -17,3 +17,4 @@ Xác minh tính đúng đắn của toàn bộ các chức năng nghiệp vụ q
 - Sử dụng Framework **pytest**.
 - Tách biệt kiểm thử Unit, Integration và API Simulation.
 - Mocking và Fallback an toàn cho tầng dịch vụ AI bên ngoài khi không có kết nối internet hoặc API key.
+

@@ -27,3 +27,4 @@ Thực hiện đánh giá bảo mật theo checklist của `security-review` ski
   - Dữ liệu trước khi gửi sang Gemini LLM đều chạy qua bộ lọc `sanitize_pii` để ẩn mật khẩu, số thẻ ngân hàng, số điện thoại.
   - Áp dụng nguyên tắc **Human-in-the-Loop**: AI chỉ đóng vai trò trợ lý sinh bản nháp (`draft_response`), bắt buộc nhân viên hỗ trợ phải đọc, biên tập và bấm nút phê duyệt mới được gửi chính thức đến khách hàng.
   - Prompt hệ thống được thiết lập nghiêm ngặt: Tuyệt đối cấm AI tự ý cam kết bồi thường hoàn tiền hoặc bịa đặt chính sách trái với cơ sở tri thức FAQ.
+

@@ -22,3 +22,4 @@ Cung cấp module trí tuệ nhân tạo tăng cường cho nhân viên hỗ tr�
    - Trích xuất ngắn gọn 3 gạch đầu dòng: Vấn đề ban đầu, Hành động đã thực hiện, Trạng thái & nút thắt hiện tại.
 5. **Quyền riêng tư & Khử định danh PII (NFR-003)**:
    - Loại bỏ mật khẩu, số thẻ ngân hàng, số điện thoại cá nhân trước khi gửi tới API LLM bên ngoài.
+

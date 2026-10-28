@@ -31,3 +31,4 @@ class CustomerService:
         customer_id = cursor.lastrowid
         conn.close()
         return customer_id
+

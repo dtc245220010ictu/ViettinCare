@@ -84,3 +84,4 @@ CREATE INDEX IF NOT EXISTS idx_tickets_customer ON tickets(customer_id);
 CREATE INDEX IF NOT EXISTS idx_tickets_assigned ON tickets(assigned_to);
 CREATE INDEX IF NOT EXISTS idx_comments_ticket ON ticket_comments(ticket_id);
 CREATE INDEX IF NOT EXISTS idx_faqs_category ON faqs(category);
+

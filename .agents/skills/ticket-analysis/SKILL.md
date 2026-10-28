@@ -36,3 +36,4 @@ Parse incoming support ticket text and message exchanges to generate an intermed
   "sanitized_summary": "Khách hàng không thể đăng nhập sau khi đổi mật khẩu, không nhận được email đặt lại."
 }
 ```
+

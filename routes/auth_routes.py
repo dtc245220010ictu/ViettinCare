@@ -27,3 +27,4 @@ def logout():
     session.clear()
     flash("Bạn đã đăng xuất an toàn.", "info")
     return redirect(url_for('auth.login'))
+

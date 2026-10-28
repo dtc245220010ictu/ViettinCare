@@ -104,3 +104,4 @@ erDiagram
 3. **Chỉ mục (Indexes)**:
    - Tối ưu hóa truy vấn tìm kiếm lọc ticket theo `status`, `priority`, `customer_id`, `assigned_to`.
    - Tối ưu hóa truy vấn chuỗi trao đổi theo `ticket_id`.
+

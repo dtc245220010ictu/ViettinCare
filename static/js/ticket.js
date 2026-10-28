@@ -221,3 +221,4 @@ async function applySuggestedClassification(ticketId) {
         alert('Lỗi khi áp dụng: ' + err.message);
     }
 }
+

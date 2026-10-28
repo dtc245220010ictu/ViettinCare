@@ -111,3 +111,4 @@ def apply_classification():
 
     TicketService.update_ticket_classification(ticket_id, category, priority)
     return jsonify({"success": True, "message": "Đã cập nhật phân loại và mức ưu tiên theo đề xuất AI!"})
+

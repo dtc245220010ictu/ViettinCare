@@ -46,3 +46,4 @@
 - **Given**: Nội dung ticket chứa chuỗi thông tin nhạy cảm: mật khẩu cũ `Pass@123456`, số thẻ ngân hàng `4532-xxxx-xxxx-1234`.
 - **When**: Pipeline Context Builder chuẩn bị payload gửi sang Gemini API.
 - **Then**: Các chuỗi nhạy cảm bị che thành `[MASKED_PASSWORD]` và `[MASKED_CARD]`. Không gửi thông tin nhạy cảm ở dạng thô sang máy chủ LLM bên thứ ba.
+

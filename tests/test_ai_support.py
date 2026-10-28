@@ -51,3 +51,4 @@ def test_ai_suggest_response_fallback_and_guardrail():
     assert len(result["draft_response"]) > 20
     # Guardrail check: Response should be polite
     assert "Kính chào" in result["draft_response"] or "ViettinCare" in result["draft_response"]
+

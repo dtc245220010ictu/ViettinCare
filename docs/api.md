@@ -29,3 +29,4 @@
 - `POST /api/ai/apply-classification`:
   - Request: `{"ticket_id": 105, "category": "...", "priority": "..."}`
   - Response: `{"success": true, "message": "..."}`
+

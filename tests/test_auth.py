@@ -26,3 +26,4 @@ def test_login_route_get(client):
     res = client.get('/login')
     assert res.status_code == 200
     assert b"ViettinCare Support" in res.data
+

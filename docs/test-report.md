@@ -37,3 +37,4 @@ tests/test_tickets.py::test_ticket_crud_and_status PASSED                [100%]
 
 ## 4. Kết luận
 Tất cả các ca kiểm thử cốt lõi đều đạt (8/8 PASSED). Hệ thống đáp ứng đầy đủ các tiêu chuẩn an toàn và nghiệp vụ hỗ trợ khách hàng đề ra trong Đề tài 10.
+

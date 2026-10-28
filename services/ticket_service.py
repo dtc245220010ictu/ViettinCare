@@ -169,3 +169,4 @@ class TicketService:
             'priority_counts': priority_counts,
             'category_counts': category_counts
         }
+

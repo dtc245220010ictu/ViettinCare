@@ -17,3 +17,4 @@ Truy cập `http://127.0.0.1:5000/login` và sử dụng một trong các tài k
    - Bước 3: Bấm nút màu xanh **"Phê duyệt & Gửi cho Khách hàng"**. Phản hồi được ghi nhận chính thức vào lịch sử trao đổi của ticket, trạng thái ticket tự động chuyển sang `Chờ khách hàng` (Waiting Customer).
 4. **Tóm tắt chuỗi trao đổi (Thread Summarization)**:
    - Khi nhận ca trực từ đồng nghiệp với ticket có nhiều trao đổi, chuyển sang tab **"Tóm tắt Lịch sử"** và bấm nút **"Tạo Tóm tắt bằng AI"** để nắm bắt nhanh 3 ý chính mà không mất thời gian đọc từng tin nhắn cũ.
+

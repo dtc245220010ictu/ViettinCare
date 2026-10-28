@@ -120,3 +120,4 @@ def seed_initial_data(conn):
 if __name__ == '__main__':
     init_db()
     print("Database initialized successfully at:", DB_PATH)
+

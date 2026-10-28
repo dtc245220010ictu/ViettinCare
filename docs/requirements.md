@@ -26,3 +26,4 @@
 | **NFR-004** | Khả năng sẵn sàng (Reliability) | Khi dịch vụ AI bên ngoài gặp sự cố hoặc timeout, hệ thống vẫn hoạt động bình thường ở chế độ thủ công, thông báo lỗi an toàn không lộ secret key. |
 | **NFR-005** | Khả năng mở rộng (Scalability) | CSDL phân tách rõ ràng các bảng nghiệp vụ và bảng log kiểm toán AI (`ai_logs`); thiết kế hỗ trợ tích hợp thêm kho tri thức tài liệu (RAG Vector/Full-text). |
 | **NFR-006** | Tính khả dụng (Usability) | Giao diện hai cột trực quan: cột trái hiển thị thông tin & lịch sử trao đổi của ticket, cột phải là trợ lý AI (phân loại, tóm tắt, câu trả lời nháp kèm nút bấm duyệt). |
+

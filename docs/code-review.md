@@ -15,3 +15,4 @@ Sử dụng bộ tiêu chuẩn `code-review` skill để đánh giá mã nguồn
 ## 3. Đánh giá tuân thủ kiến trúc (Architecture Compliance)
 - Mã nguồn tuân thủ triệt để nguyên tắc phân tầng: Controller (`routes/`) -> Service (`services/`) -> Data Access (`database/`).
 - Tầng AI không bao giờ được phép thực thi SQL tự do mà luôn giao tiếp qua intermediate representation và context injection.
+

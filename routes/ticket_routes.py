@@ -109,3 +109,4 @@ def add_comment(ticket_id):
     )
     flash("Đã gửi phản hồi thành công!", "success")
     return redirect(url_for('tickets.ticket_detail', ticket_id=ticket_id))
+

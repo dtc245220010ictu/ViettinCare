@@ -67,3 +67,4 @@
 - **Tôi muốn** xem tóm tắt ngắn gọn lịch sử trao đổi do AI sinh ra,
 - **Để** hiểu ngay bối cảnh sự cố mà không mất 15-20 phút đọc từng tin nhắn cũ.
 - *Truy vết: FR-011*
+

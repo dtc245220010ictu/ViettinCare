@@ -548,3 +548,4 @@ def create_full_report_docx(output_path):
 if __name__ == '__main__':
     out = "F:/ViettinCare/Bao_Cao_Thuc_Hanh_AI_Augmented_SDLC_De_Tai_10.docx"
     create_full_report_docx(out)
+

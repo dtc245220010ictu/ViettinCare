@@ -28,3 +28,4 @@ Doanh nghiệp cung cấp dịch vụ trực tuyến cần một hệ thống qu
 - Backend: Python Flask / SQLite / MySQL.
 - Frontend: HTML5, CSS3, JavaScript (giao diện hiện đại, responsive, trực quan).
 - AI Engine: Google Gemini API (sử dụng biến môi trường `GEMINI_API_KEY`).
+

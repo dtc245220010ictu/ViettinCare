@@ -34,3 +34,4 @@ class AuthService:
         agents = [dict(row) for row in cursor.fetchall()]
         conn.close()
         return agents
+

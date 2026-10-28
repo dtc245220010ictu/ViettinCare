@@ -39,3 +39,4 @@ Create:
 
 ## Verification
 Verify that every major functional requirement is supported by at least one architectural component.
+

@@ -21,3 +21,4 @@ Thiết kế bộ phân tích ngữ nghĩa trung gian (Intermediate Representati
 - Không tự bịa đặt danh mục ngoài 4 danh mục chính quy định.
 - Nếu chứa các từ khóa liên quan đến "tiền", "thanh toán bị trừ hai lần", "ngân hàng" -> tự động nâng mức ưu tiên lên `Urgent`.
 - Mọi chuỗi nhạy cảm (mật khẩu tạm, số tài khoản) được khử định danh thành nhãn mask `[MASKED_INFO]`.
+

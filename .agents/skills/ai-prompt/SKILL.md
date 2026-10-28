@@ -21,3 +21,4 @@ Design highly disciplined prompts that instruct the LLM to act strictly as an in
 
 ## Rules
 - Explicitly state: "Nếu thông tin không đủ trong tài liệu hỗ trợ, hãy yêu cầu khách hàng cung cấp thêm chi tiết hoặc chuyển tiếp chuyên viên cấp cao, không được tự suy diễn chính sách."
+

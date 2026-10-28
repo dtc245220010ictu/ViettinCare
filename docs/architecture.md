@@ -102,3 +102,4 @@ Customer Ticket / Update
 1. **Kiểm tra vai trò người dùng (RBAC)**: Chỉ Admin mới được quản lý tài khoản nhân viên và FAQ; chỉ Team Lead và Admin mới được phân công lại ticket cho nhân viên khác.
 2. **Khử định danh PII (Privacy Boundary)**: Trước khi gửi văn bản khách hàng ra Internet tới máy chủ của Google Gemini, tầng `PII Filter` tự động loại bỏ mật khẩu, số định danh, thông tin thanh toán.
 3. **Cô lập CSDL đối với AI**: Gemini API không bao giờ được phép trực tiếp thực thi câu lệnh SQL trên cơ sở dữ liệu. Mọi dữ liệu chỉ được cung cấp dưới dạng ngữ cảnh văn bản thuần túy (Context Injection) được kiểm soát chặt chẽ.
+

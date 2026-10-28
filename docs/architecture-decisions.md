@@ -19,3 +19,4 @@
 - **Bối cảnh**: Khách hàng thường gửi thông tin nhạy cảm (số thẻ, mật khẩu tạm thời, số điện thoại) trong mô tả ticket. Gửi trực tiếp dữ liệu này ra API công cộng vi phạm nguyên tắc bảo mật.
 - **Quyết định**: Thiết kế module `sanitizer` chạy cục bộ trên máy chủ trước khi xây dựng ngữ cảnh AI, tự động thay thế các mẫu nhạy cảm bằng nhãn mask `[MASKED_INFO]`.
 - **Hệ quả**: Đảm bảo tuân thủ tiêu chuẩn an toàn thông tin và quyền riêng tư của khách hàng.
+

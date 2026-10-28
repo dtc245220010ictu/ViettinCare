@@ -122,3 +122,4 @@ python -m pytest -v
 python app.py
 ```
 Truy cập: `http://127.0.0.1:5000` (Đăng nhập với `admin` / `Admin@123` hoặc `agent_lan` / `Agent@123`).
+
